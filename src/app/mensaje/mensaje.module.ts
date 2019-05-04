@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { AngularFireModule } from '@angular/fire';
 import {AppMaterialModule} from './../app-material/app-material.module';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
-import { environment } from '../../environments/environment';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser/';
+import { CommonModule } from '@angular/common';
 import { ComponenteMensajeComponent } from './componente-mensaje/componente-mensaje.component';
+import { environment } from './../../environments/environment';
+import {FormsModule} from '@angular/forms';
 import {MensajeRoutingModule} from './mensaje-routing.module';
-import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [ComponenteMensajeComponent],
@@ -22,7 +21,6 @@ import { AppRoutingModule } from '../app-routing.module';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     MensajeRoutingModule
   ]
 })

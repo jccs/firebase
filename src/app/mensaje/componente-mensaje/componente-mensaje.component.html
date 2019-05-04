@@ -1,49 +1,72 @@
-<section>
-  <mat-card class="card">
-    <h2>Agregar Mensaje</h2>    
-      <form class="form">
-        <mat-form-field class="form-field">
-          <input matInput
-          type="text" 
-          name="nombre"
-          placeholder="Nombre"
-          [(ngModel)]="nombre">
-        </mat-form-field>
+<section class="mensaje">
+  
 
-        <mat-form-field class="form-field">
-          <input matInput
-          type="text" 
-          name="correo"
-          placeholder="Correo"
-          [(ngModel)]="correo">
-        </mat-form-field>
+      <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>
+              <mat-card class="card">
+                <h2>Agregar Mensaje</h2>    
+                <form class="form">
+                  <mat-form-field class="form-field">
+                    <input matInput
+                    type="text" 
+                    name="nombre"
+                    placeholder="Nombre"
+                    [(ngModel)]="nombre">
+                  </mat-form-field>
+          
+                  <mat-form-field class="form-field">
+                    <input matInput
+                    type="text" 
+                    name="correo"
+                    placeholder="Correo"
+                    [(ngModel)]="correo">
+                  </mat-form-field>
+          
+                  <mat-form-field class="form-field">
+                    <input matInput
+                    type="text" 
+                    name="mensaje"
+                    placeholder="Mensaje"
+                    [(ngModel)]="mensaje">
+                    </mat-form-field>
 
-        <mat-form-field class="form-field">
-          <input matInput
-          type="text" 
-          name="mensaje"
-          placeholder="Mensaje"
-          [(ngModel)]="mensaje">
-          </mat-form-field>
-      </form>
-
-      <button mat-raised-button color="primary"
-      (click)="guardar()"
-      >
-      Enviar mensaje
-      </button>
-    <h2>Lista de mensajes</h2>
+                    <p>
+                        <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+                        
+                        <img [src]="imgURL" height="200" *ngIf="imgURL">
+                    </p>
+                </form>
+          
+                <button mat-raised-button color="primary"
+                (click)="guardar()"
+                >
+                Enviar mensaje
+                </button>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+              <mat-card class="card">
+              <h2>Lista de mensajes</h2>
     
-    <ul>
-      <li *ngFor='let mensaje of mensajes | async'>
-        <h4>{{mensaje.nombre}}</h4>
-        <p>{{mensaje.correo}}</p>
-        <p>{{mensaje.mensaje}}</p>
-        <button mat-mini-fab color="warn" (click)="borrar(mensaje.key)">-</button>
-      </li>
-    </ul>
+              <ul class="mensaje-list">
+                <li class="mensaje-list-item" *ngFor='let mensaje of mensajes | async'>
+                  <div class="mensaje-col">
+                    <h3>{{mensaje.nombre}}</h3>
+                    <h4>{{mensaje.correo}}</h4>
+                    <p>{{mensaje.mensaje}}</p>
+                    <p *ngIf="mensaje.imagen"><img class="imagen" [src]="mensaje.imagen" alt="imagen" /></p>
+                  </div>
+                  <div class="mensaje-col">
+                    <button mat-mini-fab color="warn" (click)="borrar(mensaje.key)">-</button>
+                  </div>  
+                </li>
+              </ul>
+            </mat-card> 
+          </mat-grid-tile>
+        </mat-grid-list>
+
+    
 
 
-  </mat-card> 
+  
 </section>
-<router-outlet></router-outlet>

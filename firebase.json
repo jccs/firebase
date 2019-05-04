@@ -6,7 +6,6 @@
     ]
   },
   "hosting": {
-    "site": "amkti-jceballos",
     "public": "dist",
     "ignore": [
       "firebase.json",

@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioMensajeService {
+  constructor(private db: AngularFireDatabase) {
 
-  mensajesRef: AngularFireList<any>;
-  
-  constructor(db: AngularFireDatabase) {
-    this.mensajesRef = db.list('mensajes');
+  }
+
+  listar(coleccion: string) {
+    return this.db.list(coleccion).snapshotChanges().pipe(
+      map(changes => changes.map(c => ({key: c.payload.key, ...c.payload.val()})))
+    );
+  }
+
+  guardar(coleccion: string, objeto: object) {
+    this.db.list(coleccion).push(objeto);
   }
   
-  listar(){
-    return this.mensajesRef.snapshotChanges().pipe(map(changes =>changes.map(c => ({key: c.payload.key, ...c.payload.val()}))));
-  }
-  guardar(nombre: string, correo: string, mensaje: string) {
-    this.mensajesRef.push({
-                            nombre,
-                            correo,
-                            mensaje});
-  }
-  borrar(key: string) {
-    this.mensajesRef.remove(key);
+  borrar(coleccion: string, key: string) {
+    this.db.list(coleccion).remove(key);
   }
 }

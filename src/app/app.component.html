@@ -1,10 +1,9 @@
 <mat-toolbar color="primary">
     App
-
-    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>Inicio</button>
-        <button mat-menu-item>Mensaje</button>
+    <button mat-menu-item routerLink="/">Inicio</button>
+    <button mat-menu-item routerLink="/mensaje">Mensajes</button>
     </mat-menu>
 </mat-toolbar>
 

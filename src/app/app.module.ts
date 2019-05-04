@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {AppMaterialModule} from './app-material/app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppMaterialModule} from './app-material/app-material.module';
 import {MensajeModule} from './mensaje/mensaje.module';
-
 
 @NgModule({
   declarations: [
