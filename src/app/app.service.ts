@@ -13,6 +13,12 @@ export class AppService {
   constructor(private authenticator: AngularFireAuth, private db: AngularFireDatabase, private storage: AngularFireStorage) {
 
   }
+  recuperarClave(correo: string) {
+    return this.authenticator.auth.sendPasswordResetEmail(correo);
+  }
+  crearCuenta(correo: string, clave: string) {
+    return this.authenticator.auth.createUserWithEmailAndPassword(correo, clave);
+  }
   autenticar(correo: string, clave: string) {
     return this.authenticator.auth.signInWithEmailAndPassword(correo, clave);
   }
@@ -28,6 +34,9 @@ export class AppService {
       map(changes =>
         changes.map(c => ({key: c.payload.key, ...c.payload.val()})))
     );
+  }
+  consultar(coleccion: string, key: string) {
+    return this.db.database.ref(coleccion).child(key);
   }
   guardar(coleccion: string, objeto: object) {
     this.db.list(coleccion).push(objeto);

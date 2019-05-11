@@ -8,9 +8,11 @@ import { ComponenteMensajeComponent } from './componente-mensaje/componente-mens
 import {FormsModule} from '@angular/forms';
 import {MensajeRoutingModule} from './mensaje-routing.module';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { DetalleComponent } from './detalle/detalle.component';
+import { RouterModule} from '@angular/router';
 
 @NgModule({
-  declarations: [ComponenteMensajeComponent],
+  declarations: [ComponenteMensajeComponent, DetalleComponent],
   imports: [
     CommonModule,
     AppMaterialModule,
@@ -18,7 +20,8 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
     BrowserModule,
     FormsModule,
     MensajeRoutingModule,
-    Ng2ImgMaxModule
+    Ng2ImgMaxModule,
+    RouterModule
   ]
 })
 export class MensajeModule { }

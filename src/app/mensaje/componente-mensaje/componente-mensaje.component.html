@@ -52,7 +52,7 @@
               <ul class="mensaje-list">
                 <li class="mensaje-list-item" *ngFor='let mensaje of mensajes | async'>
                   <div class="mensaje-col">
-                    <h3>{{mensaje.nombre}}</h3>
+                    <h3><a routerLink="{{mensaje.key}}">{{mensaje.nombre}}</a></h3>
                     <h4>{{mensaje.correo}}</h4>
                     <p>{{mensaje.mensaje}}</p>
                     <p *ngIf="mensaje.imagen"><img class="imagen" [src]="mensaje.imagen"  alt="imagen" /></p>
@@ -71,3 +71,4 @@
 
   
 </section>
+<router-outlet></router-outlet>

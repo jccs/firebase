@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <a class="title" routerLink="/">App</a>
+    <button *ngIf="estaAutenticado" mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">Inicio</button>
+    <button mat-menu-item routerLink="/mensaje">Mensajes</button>
+    <button mat-menu-item
+        (click)="salir()"
+        >Salir</button>
+    </mat-menu>
+</mat-toolbar>
