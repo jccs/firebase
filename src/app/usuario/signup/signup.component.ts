@@ -11,5 +11,8 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
+  crearCuenta() {
+    console.log('crearCuenta');
+  }
 
 }

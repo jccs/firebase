@@ -1,4 +1,4 @@
-<mat-card class="card">
+<mat-card class="card card-form" >
     <h2>Iniciar sesión</h2>    
     <form class="form">
       <mat-form-field class="form-field">
@@ -25,6 +25,5 @@
     >
     Iniciar sesión
     </button>
-    <p><a routerLink="passwordRecovery">¿Olvidaste tu clave?</a></p>
-    <p><a routerLink="signup">Crear un nueva cuenta</a></p>
+    <p class="center"><a class="link" (click)="mostrarDialog('passwordRecovery')">¿Olvidaste tu clave?</a> | <a class="link" (click)="mostrarDialog('signup')">Crear un nueva cuenta</a></p>
 </mat-card>

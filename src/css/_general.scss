@@ -1,0 +1,21 @@
+.hidden{
+    display: none;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.title{
+    color:#FFF;
+    text-decoration: none;
+}
+.center{
+    text-align: center;
+}
+
+.link{
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+.link:hover{
+    text-decoration: underline;
+}

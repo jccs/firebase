@@ -2,16 +2,11 @@
 @import './css/mixins';
 
 @import './css/app';
+@import './css/form';
+@import './css/general';
+@import './css/login';
 @import './css/mensaje';
 
 @import './css/hooks';
 
-.hidden{
-    display: none;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.title{
-    color:#FFF;
-    text-decoration: none;
-}
+

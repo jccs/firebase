@@ -7,9 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule} from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { UsuarioRoutingModule } from './usuario-routing.module';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [LoginComponent, SignupComponent, PasswordRecoveryComponent],
   imports: [
     AppMaterialModule,
     CommonModule,
@@ -19,6 +20,9 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
   ],
   exports: [
     LoginComponent, SignupComponent
+  ],
+  entryComponents: [
+    SignupComponent, PasswordRecoveryComponent
   ]
 })
 export class UsuarioModule { }
